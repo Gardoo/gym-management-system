@@ -1,7 +1,10 @@
-package gym_backend.entity;
+package gym_backend.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Entity
 @Table(name = "users")
@@ -21,4 +24,8 @@ public class User {
     private String email;
 
     private String password;
+    private String phoneNumber;
+    private String address;
+    private String age;
+    private String gender;
 }
