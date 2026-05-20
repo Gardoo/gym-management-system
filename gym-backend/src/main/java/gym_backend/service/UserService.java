@@ -3,6 +3,8 @@ package gym_backend.service;
 import gym_backend.model.User;
 import gym_backend.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import java.util.List;
+
 
 @Service
 public class UserService {
@@ -15,5 +17,8 @@ public class UserService {
 
     public User registerUser(User user) {
         return userRepository.save(user);
+    }
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }
