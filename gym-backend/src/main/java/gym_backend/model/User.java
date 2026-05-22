@@ -2,9 +2,6 @@ package gym_backend.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.Getter;
-import lombok.Setter;
-
 
 @Entity
 @Table(name = "users")
@@ -12,7 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class User {
 
     @Id
@@ -21,11 +17,15 @@ public class User {
 
     private String fullName;
 
+    @Column(unique = true)
     private String email;
 
     private String password;
+
+    private String role;
     private String phoneNumber;
     private String address;
-    private String age;
     private String gender;
+    private int age;
+
 }
