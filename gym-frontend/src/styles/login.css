@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    font-family: "DM Sans";
+    background: radial-gradient(circle at top, #0d1526, #080d1a);
+}
+
+.login-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 360px;
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+    color: white;
+    text-align: center;
+}
+
+.login-card h1 {
+    font-family: "Space Grotesk";
+    margin-bottom: 5px;
+}
+
+.login-card input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    color: white;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00d4ff, #3b82f6);
+    border: none;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
