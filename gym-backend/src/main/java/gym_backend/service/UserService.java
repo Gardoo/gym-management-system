@@ -1,5 +1,6 @@
 package gym_backend.service;
 
+import gym_backend.security.JwtService;
 import gym_backend.dto.LoginRequest;
 import gym_backend.dto.LoginResponse;
 import gym_backend.dto.RegisterRequest;
@@ -14,13 +15,16 @@ import java.util.Optional;
 @Service
 public class UserService {
 
+    private final JwtService jwtService;
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
     public UserService(UserRepository userRepository,
-                       BCryptPasswordEncoder passwordEncoder) {
+                       BCryptPasswordEncoder passwordEncoder,
+                       JwtService jwtService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
     }
 
     // ✅ REGISTER
@@ -66,10 +70,12 @@ public class UserService {
             return new LoginResponse("Invalid password", null, null);
         }
 
+        String token = jwtService.generateToken(user.getEmail());
+
         return new LoginResponse(
                 "Login successful",
-                user.getEmail(),
-                user.getId()
+                token,
+                user.getRole()
         );
     }
 }

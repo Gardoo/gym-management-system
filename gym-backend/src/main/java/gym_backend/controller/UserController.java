@@ -37,6 +37,10 @@ public class UserController {
         userService.deleteUser(id);
         return "User deleted with id: " + id;
     }
+    @GetMapping("/profile")
+    public String profile() {
+        return "Protected Profile Access";
+    }
 
     @PostMapping("/login")
     public LoginResponse loginUser(@RequestBody LoginRequest request) {
