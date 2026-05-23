@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "http://localhost:5173")
 public class UserController {
 
     private final UserService userService;
@@ -19,32 +20,24 @@ public class UserController {
         this.userService = userService;
     }
 
-    // ✅ Register
     @PostMapping("/register")
     public User registerUser(@RequestBody RegisterRequest request) {
         return userService.registerUser(request);
     }
 
-    // ✅ Get all users
     @GetMapping
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    // ✅ Delete user by ID
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return "User deleted with id: " + id;
-    }
-    @GetMapping("/profile")
-    public String profile() {
-        return "Protected Profile Access";
     }
 
     @PostMapping("/login")
     public LoginResponse loginUser(@RequestBody LoginRequest request) {
         return userService.loginUser(request);
     }
-
 }

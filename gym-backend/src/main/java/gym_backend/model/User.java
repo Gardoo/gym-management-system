@@ -22,10 +22,11 @@ public class User {
 
     private String password;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     private String phoneNumber;
     private String address;
     private String gender;
     private int age;
-
 }
